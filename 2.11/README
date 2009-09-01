@@ -1,0 +1,36 @@
+Financial Application
+=====================
+
+Due 2009 09 21
+
+Payroll
+-------
+
+Write a program that reads the following information and prints a
+payroll statement:
+
+* Employee name
+* Hours Worked per week
+* Hourly pay rate
+* Federal tax withholding
+* State tax witholding
+
+Write this program in two versions: (a) use dialog boxes to obtain input
+and display output; (b) Use console input and output. A sample run of
+the console input and output is shown below.
+
+    Enter Employee's Name: [Smith]
+    Enter number of hours worked in a week: [10]
+    Enter hourly pay rate: $[6.25]
+    Enter Federal tax witholding rate: [0.20]
+    Enter State tax witholding rate: [0.09]
+    Employee Name: Smith
+    Hours Worked: 10.0
+    Pay Rate: $6.75
+    Gross Pay: $67.50
+    Deductions:
+        Federal Witholding (20.0%): $13.50
+        State Witholding (9.0%): $6.07
+        Total Deductions (29.0%): 19.57
+    Net Pay: $47.92
+
