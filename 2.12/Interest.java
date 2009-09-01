@@ -1,4 +1,5 @@
 import javax.swing.JOptionPane;
+import java.util.Scanner;
 
 public class Interest {
 	/**
@@ -14,7 +15,7 @@ public class Interest {
 	public static void main (String[] args) {
 		boolean console = true;
 		
-		if (args[0].equals("pane")) {
+		if (args.length > 0 && args[0].equals("pane")) {
 			console = false;
 		}
 		
@@ -37,17 +38,20 @@ public class Interest {
 	 * @return float loan interest rate
 	 */
 	public static float get_rate(boolean console) {
-		String input = "0";
+		String dialog = "Enter Loan Annual Interest Rate";
+		float input = 0;
+		
 		if (console) {
-			
+			Scanner input_ = new Scanner(System.in);
+			System.out.print(dialog + ": %");
+			input = input_.nextFloat();
 		} else {
-			input = JOptionPane.showInputDialog(null,
-				"Enter Loan Annual Interest Rate",
+			input = Float.parseFloat(JOptionPane.showInputDialog(null, dialog,
 				"Calculate Interest",
-				JOptionPane.QUESTION_MESSAGE);
+				JOptionPane.QUESTION_MESSAGE));
 		}
 		
-		return Float.parseFloat(input);
+		return input;
 	}
 	
 	public static float get_balance() {
@@ -62,16 +66,19 @@ public class Interest {
 	 * @return float loan balance
 	 */
 	public static float get_balance(boolean console) {
-		String input = "0";
+		String dialog = "Enter Loan Balance";
+		float input = 0;
 		if (console) {
+			Scanner input_ = new Scanner(System.in);
+			System.out.print(dialog + ": $");
+			input = input_.nextFloat();
 		} else {
-			input = JOptionPane.showInputDialog(null,
-				"Enter Loan Balance",
+			input = Float.parseFloat(JOptionPane.showInputDialog(null, dialog,
 				"Calculate Interest",
-				JOptionPane.QUESTION_MESSAGE);
+				JOptionPane.QUESTION_MESSAGE));
 		}
 		
-		return Float.parseFloat(input);
+		return input;
 	}
 	
 	/**
