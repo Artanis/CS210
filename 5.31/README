@@ -1,0 +1,83 @@
+Assignment 5.31
+===============
+
+Due 2009 10 19
+
+Financial Application: Credit Card Number Validation
+----------------------------------------------------
+
+Credit card numbers follow certain patterns. A credit card number must
+have between 13 and 16 digits. It must start with:
+
+* 4 for Visa cards
+* 5 for Master Cards
+* 37 for American Express
+* 6 for Discover Cards
+
+In 1954, Hans Luhn of IBM proposed an algorithm for validating credit
+card numbers. The alrogithm is useful to determine if a card number is
+entered correctly or if a card is scanned correctly by a scanner.
+Almost all credit card numbers are generated following this validity
+check, commonly known as the Luhn Check or the Mod 10 check, which can
+be described as follows (for illustration, consider the card number
+4388 5760 1840 2625):
+
+1. Double every second digit from right to left. If doubling of a digit
+   results in a two-digit number, add up the two digits to get a single
+   digit number.
+   
+       4 = 2 * 2
+       4 = 2 * 2
+       8 = 4 * 2
+       2 = 1 * 2
+       3 = 1 + 2; 12 = 6 * 2
+       1 = 1 + 0; 10 = 5 * 2
+       7 = 1 + 6; 16 = 8 * 2
+       8 = 4 * 2
+   
+2. Now add all the single-digit numbers from Step 1:
+   
+       37 = 4 + 4 + 8 + 2 + 3 + 1 + 7 + 8
+   
+3. Add all the digits in the odd places from right to left:
+   
+       37 = 5 + 6 + 0 + 8 + 0 + 7 + 8 + 3
+   
+4. Sum the results from Step 2 and Step 3:
+   
+       74 = 37 + 37
+   
+5. If the result from Step 4 is divisible by 10, the card number is
+   valid; otherwise it is invalid. For example, the number
+   4388 5760 1840 2625 is invalid, but the number
+   4388 5760 1841 0707 is valid.
+
+Write a program that prompts the user to enter a credit card number
+as a long integer. Display whether the number is valid. Design your
+program to use the following methods:
+
+    /**
+     * Return true if the card number is valid.
+     * 
+     */
+    public boolean isValid(long number);
+    
+    /**
+     * Get the result of Step 2
+     * 
+     */
+    public static int sumOfEvenPlace(long number);
+    
+    /**
+     * Return this number if it is a single digit, otherwise return the
+     * sum of the two digits
+     * 
+     */
+    public static int getDigit(int number);
+    
+    /**
+     * Return the sum of odd place digits in number
+     * 
+     */
+    public static in sumOfOddPlace(long number);
+
