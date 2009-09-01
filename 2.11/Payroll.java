@@ -75,23 +75,26 @@ public class Payroll {
 		float fed_witholding = gross_pay * fed_withold;
 		float state_witholding = gross_pay * state_withold;
 		
+		String output = String.format(
+		"Employee Name: %s\n" +
+		"Hours Worked: %1.2f\n" + 
+		"Pay rate: $%1.2f\n" +
+		"Gross pay: $%1.2f\n" +
+		"Deductions:\n" +
+		"    Federal tax witholding (%1.2f%%): $%1.2f\n" +
+		"    State tax witholding (%1.2f%%): $%1.2f\n" +
+		"    Total Deductions (%1.2f%%): $%1.2f\n" +
+		"Net pay: $%1.2f\n",
+		name, hours, payrate, gross_pay, fed_withold * 100,
+		fed_witholding, state_withold * 100, state_witholding,
+		(fed_withold + state_withold) * 100,
+		fed_witholding + state_witholding,
+		gross_pay - fed_witholding - state_witholding);
 		
-		System.out.println(String.format("Employee Name: %s", name));
-		System.out.println(String.format("Hours Worked: %1.2f", hours));
-		System.out.println(String.format("Pay rate: $%1.2f", payrate));
-		System.out.println(String.format("Gross pay: $%1.2f", gross_pay));
-		System.out.println("Deductions:");
-		System.out.println(String.format(
-			"    Federal tax witholding (%1.2f%%): $%1.2f",
-			fed_withold * 100, fed_witholding));
-		System.out.println(String.format(
-			"    State tax witholding (%1.2f%%): $%1.2f",
-			state_withold * 100, state_witholding));
-		System.out.println(String.format(
-			"    Total Deductions (%1.2f%%): $%1.2f",
-			(state_withold + fed_withold) * 100,
-			fed_witholding + state_witholding));
-		System.out.println(String.format("Net pay: $%1.2f",
-			gross_pay - fed_witholding - state_witholding));
+		if (console) {
+			System.out.println(output);
+		} else {
+			JOptionPane.showMessageDialog(null, output);
+		}
 	}
 }
