@@ -60,7 +60,7 @@ program to use the following methods:
      * Return true if the card number is valid.
      * 
      */
-    public boolean isValid(long number);
+    public static boolean isValid(long number);
     
     /**
      * Get the result of Step 2
@@ -79,5 +79,5 @@ program to use the following methods:
      * Return the sum of odd place digits in number
      * 
      */
-    public static in sumOfOddPlace(long number);
+    public static int sumOfOddPlace(long number);
 
