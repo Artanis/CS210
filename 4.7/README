@@ -11,3 +11,5 @@ increases 5% every year. Write a program that uses a loop to compute the
 tuition in 10 years. Write another program that computes the total cost
 of four years' worth of tuition starting ten years from now.
 
+Use JOptionPane.
+
