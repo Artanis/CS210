@@ -1,32 +1,34 @@
+import javax.swing.JOptionPane;
+
 public class Tuition {
 	public static void main (String[] args) {
-		if(args.length >= 3) {
-			int tuition = Integer.parseInt(args[0]);
-			int progression = Integer.parseInt(args[1]);
-			int years = Integer.parseInt(args[2]);
-			int attendance = 4;
-			
-			int future_tuition = Tuition.calculate_tuition(
-				tuition, progression, years);
-			
-			int attendance_cost = Tuition.calculate_cost(
-				future_tuition, progression, attendance);
-			
-			System.out.println(String.format(
-				"$%1.2f tuition in %d years at %1.2f%% " +
-				"change per year: $%1.2f",
-				tuition / 100.0, years, progression / 100.0,
-				future_tuition / 100.0));
-			
-			System.out.println(String.format(
-				"Total tuition cost in the %d years after that: $%1.2f",
-				attendance, attendance_cost / 100.0));
-			
-		} else {
-			System.out.println("Use: java Tuition " +
-				"(int tuition in cents) (int percentage change) " +
-				"(int years)");
-		}
+		int tuition = (int)(Float.parseFloat(JOptionPane.showInputDialog(
+			null, "Enter Current Tution", "Tuition",
+			JOptionPane.QUESTION_MESSAGE)) * 100);
+		
+		int progression = Integer.parseInt(JOptionPane.showInputDialog(
+			null, "Enter yearly increase percentage (0-100)",
+			"Tuition", JOptionPane.QUESTION_MESSAGE));
+		int years = Integer.parseInt(JOptionPane.showInputDialog(null,
+			"Enter years in the future to calculate", "Tuition",
+			JOptionPane.QUESTION_MESSAGE));
+		int attendance = 4;
+		
+		int future_tuition = Tuition.calculate_tuition(
+			tuition, progression, years);
+		
+		int attendance_cost = Tuition.calculate_cost(
+			future_tuition, progression, attendance);
+		
+		String output = String.format(
+			"$%1.2f tuition in %d years at %1.2f%% " +
+			"increase per year: $%1.2f\n\n" +
+			"Total cost of the %d years after that: $%1.2f",
+			tuition / 100.0, years, (float)progression,
+			future_tuition / 100.0, attendance,
+			attendance_cost / 100.0);
+		
+		JOptionPane.showMessageDialog(null, output);
 	}
 	
 	/**
