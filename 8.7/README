@@ -3,3 +3,18 @@ Assignment 8.7
 
 Due 2009 11 16
 
+Hex to Decimal
+--------------
+
+Write a method that parses a hex number as a string into a decimal
+integer. The method header is as follows:
+
+    public static int parseHex(String hexString);
+
+For example, hexString 0xA5 is 165 (10 * 16^1 + 5 * 16^0 = 165) and
+0xFAA is 4010 (15 * 16^2 + 10 * 16^1 + 10 * 16^0 = 4010). So
+parseHex("0xA5") returns 165 and  parseHex("0xFAA) returns 4010. Use
+hex strings 0xABC and 0x10A to test the method. Note that
+Integer.parseInt("FAA", 16) parses a hex string to a decimal value. Do
+not use this method in this exercise.
+
