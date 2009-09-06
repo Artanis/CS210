@@ -3,3 +3,24 @@ Assignment 6.25
 
 Due 2009 10 26
 
+Multiply Matrix
+---------------
+
+Write a method to multiply two matrices. The header of the method is as
+follows:
+
+    public static int[][] multiplyMatrix(int[][] a, int[][] b)
+
+To multiply matrix a by matrix b, the number of columns in a must be the
+same as the number of rows in b, and the two matrices must have elements
+of compatible types. Let c be the result of the multiplication, and a,
+b, and c are denoted as follows:
+
+    [[a11 a12 a13]    [[b11 b12 b13]    [[c11 c12 c13]
+     [a21 a22 a23]  *  [b21 b22 b23]  =  [c21 c22 c23]
+     [a31 a32 a33]]    [b31 b32 b33]]    [c31 c32 c33]]
+
+Where
+
+    c[i][j] = a[i][1] * b[1][j] + a[i][2] * b[2][j] + a[i][3] * b[3][j]
+
