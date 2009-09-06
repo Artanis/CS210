@@ -3,3 +3,18 @@ Assignment 7.5
 
 Due 2009 11 09
 
+Gregorian Calendar
+------------------
+
+Java API has the GregorianCalendar class in the java.util package that
+can be used to obtain the year, month and day of a date. The no-arg
+constructor constructs an instance for the current date, and the methods
+get(GregorianCalendar.YEAR), get(GregorianCalendar.MONTH), and
+get(GregorianCalendar.DAY_OF_MONTH) return the year, month and day.
+
+Write a program to perform two tasks:
+* Display the current year, month, and day.
+* The GregorianCalendar class has the setTimeInMillis(long), which can
+  be used to set a specified elapsed time since January 1, 1970. Set the
+  value to 123456789L and display the year, month, and day.
+
