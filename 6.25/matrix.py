@@ -34,14 +34,14 @@ def get_rows (matrix):
 	Named Arguments:
 	* matrix -- any list, tuple, or dict object
 	
-	Returns number of elements in matrix
+	Returns number of rows in matrix
 	
 	"""
 	
 	return len(matrix)
 
 def get_cols (matrix):
-	""" Returns the number of
+	""" Returns the number of columns in the matrix.
 	
 	Counts length of each row in matrix. If the matrix is ragged,
 	returns -1. If the matrix is rectangular returns the number of

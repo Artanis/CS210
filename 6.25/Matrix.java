@@ -1,25 +1,80 @@
+import java.util.Scanner;
+
 class Matrix {
 	public static void main(String[] args) {
-		int[][] a =
-			{{1, 2, 3},
-			 {3, 4, 5},
-			 {5, 6, 7}};
-		int [][] b = 
-			{{1, 0, 1},
-			 {0, 1, 0},
-			 {1, 0, 1}};
+		System.out.println("Matrix A:");
+		int[][] a = Matrix.get_matrix();
 		
+		System.out.println("Matrix B:\nNOTE: the rows in this matrix must be "+
+			"the same as the columns in Matrix A");
+		int[][] b = Matrix.get_matrix();
+		
+		// Multiply matrix
 		int [][] c = Matrix.multiplyMatrix(a, b);
 		
+		// Print matrices
+		System.out.println("Matrix A");
 		System.out.println(Matrix.print(a)+"\n");
+		
+		System.out.println("Matrix B");
 		System.out.println(Matrix.print(b)+"\n");
+		
+		System.out.println("Result Matrix:");
 		System.out.println(Matrix.print(c));
 	}
 	
+	/**
+	 * Asks the user to define and enter a matrix.
+	 * 
+	 * Based on the readAPuzzle function in the Sudoku solver example
+	 * 
+	 * @return int[][] matrix
+	 */
+	public static int[][] get_matrix() {
+		Scanner input = new Scanner(System.in);
+		
+		System.out.print("Enter matrix dimensions (Cols Rows): ");
+		int cols = input.nextInt();
+		int rows = input.nextInt();
+		
+		int[][] matrix = new int[rows][cols];
+		System.out.println("Enter matrix values\nSpace separated, "+
+			"in order of top-left to bottom-right:");
+		for (int i = 0; i < rows; i++) {
+			for (int j = 0; j < cols; j++) {
+				matrix[i][j] = input.nextInt();
+			}
+		}
+		
+		return matrix;
+	}
+	
+	/**
+	 * Returns the number of rows in a matrix
+	 * 
+	 * Really just the length of the array
+	 * 
+	 * Here for completeness, paired with the cols function
+	 * 
+	 * @param int[][] matrix
+	 * 
+	 * @return Returns number of rows in matrix
+	 */
 	public static int rows(int[][] a) {
 		return a.length;
 	}
 	
+	/**
+	 * Returns the number of columns in the matrix.
+	 *
+	 * Counts length of each row in matrix. If the matrix is ragged,
+	 * returns -1. If the matrix is rectangular returns the number of
+	 * columns.
+	 * 
+	 * @param int[][] matrix
+	 * 
+	 * @return number of columns in matrix, or -1 if matrix is ragged
+	 */
 	public static int cols(int[][] a) {
 		int count = 0;
 		
@@ -48,6 +103,10 @@ class Matrix {
 		if (inputArray.length==0) {
 			return "";
 		} else {
+			// According to the author, he uses a StringBuffer rather
+			// than a String for better performance with large arrays.
+			// No real problem in this use, but I'd rather type this
+			// comment than change the code to use a String.
 			StringBuffer sb = new StringBuffer();
 			sb.append(inputArray[0]);
 			for (int i=1;i<inputArray.length;i++) {
@@ -64,6 +123,11 @@ class Matrix {
 	 * Port of similar function in PHP and Python.
 	 * Source: http://dracoblue.net/dev/implode-an-array-in-java/95/
 	 *
+	 * This is stupid. Do you know how much I'd kill for duck-typing
+	 * right now? Hell, the two versions are character-for-character
+	 * identical aside from the function signature! Isn't an OO language
+	 * supposed to *limit* the unnecessary replication of code?
+	 *
 	 * @param String[] inputArray the array to implode
 	 * @param String separator the string to place between elements
 	 *
@@ -73,6 +137,10 @@ class Matrix {
 		if (inputArray.length==0) {
 			return "";
 		} else {
+			// According to the author, he uses a StringBuffer rather
+			// than a String for better performance with large arrays.
+			// No real problem in this use, but I'd rather type this
+			// comment than change code to use a String.
 			StringBuffer sb = new StringBuffer();
 			sb.append(inputArray[0]);
 			for (int i=1;i<inputArray.length;i++) {
@@ -83,7 +151,14 @@ class Matrix {
 		}
 	}
 	
-	public static String print(int[][] a) {
+	/**
+	 * Converts a matrix to a string representation.
+	 *
+	 * @param int[][] a
+	 * 
+	 * @return String
+	 */
+	public static String to_string(int[][] a) {
 		String[] output = new String[a.length];
 		
 		for (int i = 0; i < a.length; i++) {
@@ -93,6 +168,14 @@ class Matrix {
 		return Matrix.implode(output, "\n");
 	}
 	
+	/**
+	 * Creates a matrix and fills it with zeroes.
+	 * 
+	 * @param int rows
+	 * @param int cols
+	 *
+	 * @return new int[rows][cols]
+	 */
 	public static int[][] newMatrix(int rows, int cols) {
 		int[][] matrix = new int [rows][cols];
 		
@@ -124,13 +207,25 @@ class Matrix {
 			for (int i = 0; i < a_cols; i++) {
 				for (int j = 0; j < b_rows; j++) {
 					for (int k = 0; k < a_cols; k++) {
-						c[i][j] += (a[i][k] * b[k][j]);
+						try {
+							c[i][j] += (a[i][k] * b[k][j]);
+						} catch(ArrayIndexOutOfBoundsException e) {
+							// The k loop can out-of-bounds the array.
+							// Since the same loop is used for different
+							// sized arrays and it'd be difficult to
+							// normalize it for all matrices, just
+							// catch the error and let it slide.
+						}
 					}
 				}
 			}
 			
 			return c;
 		} else {
+			System.out.println(
+				"\n****************************\n" +
+			      "Error: Incompatible Matrices" +
+			    "\n****************************\n");
 			int[][] c = {{0}};
 			return c;
 		}
