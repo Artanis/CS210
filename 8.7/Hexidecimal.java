@@ -59,8 +59,18 @@ public class Hexidecimal {
 		return new String();
 	}
 	
+	/**
+	 * Converts a single hex digit to it's decimal value
+	 * 
+	 * Presumes the hex digit has already been validated.
+	 * Otherwise returns -1
+	 * 
+	 * @param char hex
+	 * 
+	 * @return int value
+	 */
 	public static int convert_digit(char hex) {
-		int value = 0;
+		int value = -1;
 		if (hex <= '9') {
 			value = hex - '0';
 		} else if(hex <= 'F') {
