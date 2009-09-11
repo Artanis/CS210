@@ -1,3 +1,11 @@
+/**
+ * Computer Science 210 - Introduction to Computer Programming - Java
+ * Chang-Shyh Peng <peng@clunet.org> <http://public.clunet.org/~peng>
+ *
+ * @author Erik Youngren <artanis.00@gmail.com>
+ *
+ */
+
 import java.util.Scanner;
 
 class Matrix {
