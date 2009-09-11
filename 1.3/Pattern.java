@@ -10,8 +10,6 @@ public class Pattern {
 	/**
 	 * Returns a string containing the text JAVA in a large pattern
 	 * 
-	 * TODO: Render arbitrary strings passed through an argument. 
-	 * 
 	 * @return String pattern
 	 */
 	public static String pattern() {
