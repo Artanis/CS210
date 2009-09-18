@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
 public class Payroll {
 	
 	/**
-	 * Main Application
+	 * Main Application Logic
 	 *
 	 * CLI Arguments
 	 *     text -- use text based input (default)
@@ -24,26 +24,39 @@ public class Payroll {
 	public static void main (String[] args) {
 		boolean console = true;
 		
+		// Simple command line switch. UI functions use this to decide
+		// which interface to present.
 		if (args.length > 0 && args[0].equals("pane")) {
 			console = false;
 		}
 		
-		String query_name    = "Employee's name";
-		String query_hours   = "Hours worked in week";
+		// Query messages
+		String query_name  = "Employee's name";
+		String query_hours = "Hours worked in week";
 		String query_payrate = "Hourly Pay";
 		String query_fed_withold = "Federal tax witholding rate";
 		String query_state_withold = "State tax witholding rate";
 		
+		// Get input
 		String employee_name = Payroll.get_string(query_name, console);
 		float hours_per_week = Payroll.get_float(query_hours, console);
 		float payrate = Payroll.get_float(query_payrate, console);
 		float fed_withold = Payroll.get_float(query_fed_withold, console);
 		float state_withold = Payroll.get_float(query_state_withold, console);
 		
+		// Display results
 		Payroll.display_payroll(employee_name, hours_per_week, payrate,
 			fed_withold, state_withold, console);
 	}
 	
+	/**
+	 * Request user input
+	 *
+	 * @param String message What the user is expected to enter
+	 * @param boolean console Use console (True) or JOptionPane (False).
+	 *
+	 * @return String user input
+	 */
 	public static String get_string(String message, boolean console) {
 		String input = "";
 		
@@ -59,6 +72,14 @@ public class Payroll {
 		return input;
 	}
 	
+	/**
+	 * Request user input
+	 *
+	 * @param String message What the user is expected to enter
+	 * @param boolean console Use console (True) or JOptionPane (False).
+	 *
+	 * @return float user input
+	 */
 	public static float get_float(String message, boolean console) {
 		float input = 0;
 		
@@ -75,6 +96,13 @@ public class Payroll {
 		return input;
 	}
 	
+	/**
+	 * Display the payroll.
+	 * 
+	 * Actually, it also calculates the rest of the information, so it
+	 * performs some logic and is misnamed.
+	 * 
+	 */
 	public static void display_payroll(String name, float hours,
 		float payrate, float fed_withold, float state_withold,
 		boolean console)
