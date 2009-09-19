@@ -12,7 +12,7 @@ def package_assignment(name):
 	"""
 	
 	assignment = name.replace(".","-")
-	arcname = "[Erik_Youngren]_Assignment_%s" % (assignment,)
+	arcname = "Erik_Youngren_-_Assignment_%s" % (assignment,)
 	
 	package = zipfile.ZipFile("%s.zip" % (arcname,), "a")
 	
