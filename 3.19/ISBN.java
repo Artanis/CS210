@@ -18,7 +18,7 @@ public class ISBN {
 		}
 		
 		long partial = ISBN.get_isbn(console);
-		String isbn = String.format("%d-%s", partial, ISBN.checksum(partial));
+		String isbn = String.format("%09d-%s", partial, ISBN.checksum(partial));
 		ISBN.display_isbn(isbn, console);
 	}
 	
