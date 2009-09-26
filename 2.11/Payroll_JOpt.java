@@ -13,29 +13,19 @@ public class Payroll {
 	
 	/**
 	 * Main Application Logic
-	 *
-	 * CLI Arguments
-	 *     text -- use text based input (default)
-	 *     pane -- use JOptionPane
 	 * 
 	 * @param String[] args
 	 *
 	 */
 	public static void main (String[] args) {
-		boolean console = true;
-		
-		// Simple command line switch. UI functions use this to decide
-		// which interface to present.
-		if (args.length > 0 && args[0].equals("pane")) {
-			console = false;
-		}
+		boolean console = false;
 		
 		// Query messages
 		String query_name  = "Employee's name";
 		String query_hours = "Hours worked in week";
 		String query_payrate = "Hourly Pay";
-		String query_fed_withold = "Federal tax witholding rate";
-		String query_state_withold = "State tax witholding rate";
+		String query_fed_withold = "Federal tax witholding rate in decimal format (20% is 0.20)";
+		String query_state_withold = "State tax witholding rate in decimal format";
 		
 		// Get input
 		String employee_name = Payroll.get_string(query_name, console);
