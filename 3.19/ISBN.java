@@ -68,8 +68,8 @@ public class ISBN {
         // No important data is discarded.
         
         // First, the result holder and the length of the ISBN.
-        // I was determining the *actual* length of the ISBN, but
-        // this introduced a bug in ISBNs with preceeding zeros.
+        // I was determining the *actual* length of the number, but
+        // this introduced a bug in ISBNs with preceeding zeros...
         int sum = 0;
         int length = 9;
         
@@ -78,11 +78,11 @@ public class ISBN {
             // This is the multiplier of the iteration. Need this
             // because the loop starts at the least significant digit.
             // If I made the loop go down, I'd be inverting to find the
-            // power I need.
+            // power I need instead.
             int multiplier = -i+length+1;
             
             // Here's the digit I'm working on this iteration.
-            // Divide the ISBN by 10^i to cut off the lesser digits,
+            // Divide the ISBN by 10^(i-1) to cut off the lesser digits,
             // then grab the wanted digit with mod 10
             int digit = (int)(isbn/Math.pow(10,i-1)) % 10;
             
