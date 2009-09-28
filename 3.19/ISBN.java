@@ -9,12 +9,12 @@
 import java.util.Scanner;
 import javax.swing.JOptionPane;
 
-public class ISBN_CLI {
+public class ISBN {
     public static void main (String[] args) {
         System.out.println(
             "Please run either of the \"Text\" or \"Pane\" classes instead.");
         
-        System.exit(0)
+        System.exit(0);
     }
     
     public static long get_isbn(boolean console) {
@@ -86,12 +86,12 @@ public class ISBN_CLI {
             // then grab the wanted digit with mod 10
             int digit = (int)(isbn/Math.pow(10,i-1)) % 10;
             
-            // Extra step to enable debug
+            // Extra step to enable debug view
             int new_sum = sum + (digit*multiplier);
             
-            System.out.printf(
-                "%d: %4d = %-4d + (%d * %d)\n",
-                i, new_sum, sum, digit, multiplier);
+            //System.out.printf(
+            //    "%d: %4d = %-4d + (%d * %d)\n",
+            //    i, new_sum, sum, digit, multiplier);
             
             sum = new_sum;
         }
