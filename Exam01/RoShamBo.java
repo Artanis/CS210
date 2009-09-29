@@ -59,8 +59,6 @@ public class RoShamBo {
         "    3: Paper    (wraps rock)\n");
         try {
             answer = stdin.nextInt()-1;
-            System.out.println(answer);
-            
         } catch (java.util.InputMismatchException e) {
             // don't need to do anything but trap the error.
             // function handles no input just fine.
