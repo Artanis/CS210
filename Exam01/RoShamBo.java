@@ -31,7 +31,8 @@ public class RoShamBo {
         int cpu = RoShamBo.cpu();
         
         if (player == -1) {
-            System.out.println("\nYou don't want to play? Come back soon!");
+            System.out.println(
+                "\nYou don't want to play? Come back soon!");
             System.exit(0);
         } else {
             System.out.printf("You chose %s! CPU chose %s! ",
@@ -39,11 +40,16 @@ public class RoShamBo {
             
             String result = "";
             
-            if(player == cpu) result = "Its a draw!";
-            else if(((player + 1 <= 2)? player+1: 0) == cpu) result = "CPU wins!";
-            else result = "You win!";
+            if(player == cpu)
+                result = "Its a draw!";
+            else if(((player + 1 <= 2)? player+1: 0) == cpu)
+                result = "CPU wins!";
+            else
+                result = "You win!";
             
-            System.out.println(result+"\n\nThanks for playing! Come back soon!\n");
+            System.out.printf(
+                "%s\n\nThanks for playing! Come back soon!\n\n",
+                result);
         }
     }
     
