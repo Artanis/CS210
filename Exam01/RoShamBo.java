@@ -1,3 +1,25 @@
+/**
+ * Computer Science 210 - Introduction to Computer Programming - Java
+ * Chang-Shyh Peng <peng@clunet.org> <http://public.clunet.org/~peng>
+ * 
+ * @author Erik Youngren <artanis.00@gmail.com>
+ * 
+ * Examination 01
+ * ==============
+ * 
+ * 2009.09.28 18:00 - 2009.09.28 21:00
+ * 
+ * Game: Rock, Scissors, Paper
+ * ---------------------------
+ * Write a program that plays the popular scissor-rocl-paper game. The
+ * program randomly generates a number 0, 1, or 2 representing scissor,
+ * rock, and paper. The program prompts the user to enter a number 0, 1,
+ * or 2 and displays a message indicating whether the user or the
+ * computer wins or draws. Note that a scissor can cut a paper, a rock
+ * can knock a scissor, and a paper can wrap a rock.
+ * 
+ */
+
 import java.util.Scanner;
 import java.util.Random;
 
@@ -18,10 +40,11 @@ public class RoShamBo {
             String result = "";
             
             if(player == cpu) result = "Its a draw!";
-            else if(((player + 1 < 2)? player+1: 0) == cpu) result = "CPU wins!";
+            else if(((player + 1 <= 2)? player+1: 0) == cpu) result = "CPU wins!";
             else result = "You win!";
             
             System.out.println(result+"\n\nThanks for playing! Come back soon!\n");
+            System.out.printf("%d == %d", ((player + 1 < 2)? player+1: 0), cpu);
         }
     }
     
@@ -36,7 +59,12 @@ public class RoShamBo {
         "    3: Paper    (wraps rock)\n");
         try {
             answer = stdin.nextInt()-1;
-        } catch (Exception e) {}
+            System.out.println(answer);
+            
+        } catch (java.util.InputMismatchException e) {
+            // don't need to do anything but trap the error.
+            // function handles no input just fine.
+        }
         
         return (answer >= 0 && answer <= 2)? answer: -1;
     }
