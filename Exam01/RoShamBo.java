@@ -44,7 +44,6 @@ public class RoShamBo {
             else result = "You win!";
             
             System.out.println(result+"\n\nThanks for playing! Come back soon!\n");
-            System.out.printf("%d == %d", ((player + 1 < 2)? player+1: 0), cpu);
         }
     }
     
