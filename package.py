@@ -19,6 +19,7 @@ def package_assignment(name):
     
     filelist = glob(name+"/*.java")
     filelist.extend(glob(name+"/README"))
+    filelist.extend(glob(name+"/NOTE"))
     
     print "Creating %s.zip" % (arcname,)
     for f in filelist:
