@@ -22,13 +22,13 @@ class Matrix {
 		
 		// Print matrices
 		System.out.println("Matrix A");
-		System.out.println(Matrix.print(a)+"\n");
+		System.out.println(Matrix.to_string(a)+"\n");
 		
 		System.out.println("Matrix B");
-		System.out.println(Matrix.print(b)+"\n");
+		System.out.println(Matrix.to_string(b)+"\n");
 		
 		System.out.println("Result Matrix:");
-		System.out.println(Matrix.print(c));
+		System.out.println(Matrix.to_string(c));
 	}
 	
 	/**
@@ -176,34 +176,16 @@ class Matrix {
 		return Matrix.implode(output, "\n");
 	}
 	
-	/**
-	 * Creates a matrix and fills it with zeroes.
-	 * 
-	 * @param int rows
-	 * @param int cols
-	 *
-	 * @return new int[rows][cols]
-	 */
-	public static int[][] newMatrix(int rows, int cols) {
-		int[][] matrix = new int [rows][cols];
-		
-		for (int i = 0; i < rows; i++) {
-			for (int j = 0; j < cols; j++) {
-				matrix[i][j] = 0;
-			}
-		}
-		
-		return matrix;
-	}
-	
 	public static int[][] multiplyMatrix(int[][] a, int[][] b) {
 		int a_cols = Matrix.cols(a);
+		int a_rows = Matrix.rows(a);
+		int b_cols = Matrix.cols(b);
 		int b_rows = Matrix.rows(b);
 		
 		// Confirm a's cols = b's rows
 		if (a_cols == b_rows) {
 			// Create result matrix
-			int[][] c = Matrix.newMatrix(a_cols, b_rows);
+			int[][] c = new int[a_rows][b_cols];
 			
 			// Using the naive algorithm at O(n^3) time. Couldn't find a
 			// reduction of the Coppersmith algorithm at O(n^2.376) time,
@@ -212,18 +194,10 @@ class Matrix {
 			//
 			// Probably wouldn't have understood Coppersmith's anyway.
 			
-			for (int i = 0; i < a_cols; i++) {
-				for (int j = 0; j < b_rows; j++) {
+			for (int i = 0; i < a_rows; i++) {
+				for (int j = 0; j < b_cols; j++) {
 					for (int k = 0; k < a_cols; k++) {
-						try {
-							c[i][j] += (a[i][k] * b[k][j]);
-						} catch(ArrayIndexOutOfBoundsException e) {
-							// The k loop can out-of-bounds the array.
-							// Since the same loop is used for different
-							// sized arrays and it'd be difficult to
-							// normalize it for all matrices, just
-							// catch the error and let it slide.
-						}
+						c[i][j] += (a[i][k] * b[k][j]);
 					}
 				}
 			}
@@ -232,8 +206,8 @@ class Matrix {
 		} else {
 			System.out.println(
 				"\n****************************\n" +
-			      "Error: Incompatible Matrices" +
-			    "\n****************************\n");
+				  "Error: Incompatible Matrices" +
+				"\n****************************\n");
 			int[][] c = {{0}};
 			return c;
 		}
