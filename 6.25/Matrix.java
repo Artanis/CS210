@@ -193,6 +193,7 @@ class Matrix {
             // O(n^(log2(7))) time.
             //
             // Probably wouldn't have understood Coppersmith's anyway.
+            // Check back after I take more math classes.
             
             for (int i = 0; i < a_rows; i++) {
                 for (int j = 0; j < b_cols; j++) {
