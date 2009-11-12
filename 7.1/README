@@ -1,0 +1,27 @@
+Assignment 7.1
+==============
+
+Due 2009 11 16
+
+Rectangle Class
+---------------
+
+Design a class named Rectangle to represent a rectangle. The class
+contains:
+
+* Two double data fields named width and height that specify the width
+  and height of the rectangle. The default values are 1 for both width
+  and height.
+* A no-arg constructor that creates a default rectangle.
+* A constructor that creates a rectangle with the specified width and
+  height.
+* The accessor and mutator methods for all three data fields.
+* A method named getArea() that returns the area of the rectangle.
+* A method named getPerimeter() that returns the perimeter.
+
+Draw the UML diagram for the class. Implement the class. Write a test
+program that creates two Rectangle objects. Assign width 4 and height 40
+to the first object and width 3.5 and height 35.9 to the second object.
+Assign color red to all Rectangle objects. Display the properties of
+both and find their areas and perimeters.
+
