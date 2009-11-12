@@ -54,7 +54,7 @@ class Rectangle {
     }
     
     public String str() {
-        return String.format("%s %0.2fx%0.2f rectangle",
+        return String.format("%s %1.2fx%1.2f rectangle",
             this.color, this.width, this.height);
     }
     
@@ -62,11 +62,11 @@ class Rectangle {
         String output = "Rectangle(";
         
         if (this.width  != 1) {
-            output += this.width;
+            output += String.format("%1.2f", this.width);
         }
         
         if (this.height != 1) {
-            output += String.format(", %f", this.height);
+            output += String.format(", %1.2f", this.height);
         }
         
         if (this.color != "white") {
