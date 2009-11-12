@@ -1,3 +1,15 @@
+/**
+ * Computer Science 210 - Introduction to Computer Programming - Java
+ * Chang-Shyh Peng <peng@clunet.org> <http://public.clunet.org/~peng>
+ *
+ * @author Erik Youngren <artanis.00@gmail.com>
+ *
+ */
+
+/**
+ * A test driver for the Rectangle class
+ * 
+ */
 public class RectDriver {
     public static void main(String[] args) {
         Rectangle a,b;
@@ -5,8 +17,7 @@ public class RectDriver {
         a = new Rectangle(4, 40);
         a.set_color("red");
         
-        b = new Rectangle(3.5, 35.9);
-        b.set_color("red");
+        b = new Rectangle(3.5, 35.9, "red");
         
         System.out.printf(
             "\n" +
