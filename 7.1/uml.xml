@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="uml.xsl"?>
+
+<uml>
+    <class name="Rectangle">
+        <field type="double" access="private" name="width" />
+        <field type="double" access="private" name="height" />
+        <field type="string" access="private" name="color" />
+        <method type="constructor" name="Rectangle" />
+        <method type="constructor" name="Rectangle">
+            <arg type="double" name="width" />
+            <arg type="double" name="height" />
+        </method>
+        <method type="constructor" name="Rectangle">
+            <arg type="double" name="width" />
+            <arg type="double" name="height" />
+            <arg type="string" name="color" />
+        </method>
+        <method type="double" access="public" name="get_width" />
+        <method type="boolean" access="public" name="set_width">
+            <arg type="double" name="width" />
+        </method>
+        <method type="double" access="public" name="get_height" />
+        <method type="boolean" access="public" name="set_height">
+            <arg type="double" name="height" />
+        </method>
+        <method type="string" access="public" name="get_color" />
+        <method type="boolean" access="public" name="set_color">
+            <arg type="string" name="color" />
+        </method>
+        <method type="double" access="public" name="getArea" />
+        <method type="double" access="public" name="getPerimeter" />
+        <method type="string" access="public" name="str" />
+        <method type="string" access="public" name="repr" />
+    </class>
+</uml>
