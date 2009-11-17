@@ -3,6 +3,10 @@ Examination 03
 
 2009.11.16 18:00 - 2009.11.16 21:00
 
-h2.title
---------
-p.description
+6.7 - Counting single digits
+----------------------------
+Write a program that generates 100 random integers between 0 and 9 and
+displays the count for each number. (Hint: Use (int)(Math.random() * 10)
+to generate a random integer between 0 and 9. Use an array of ten
+integers, say 'counts,' to store the counts for the number of 0's,
+1's, ..., 9's.)
