@@ -63,7 +63,7 @@ public class CountRandom {
     /**
      * Creates a string displaying the number of hits each number got.
      * 
-     * If the optional parameter high is provided, also creates a
+     * If the optional parameter "high" is provided, also creates a
      * graphical representation.
      * 
      * @param int entry The number
@@ -82,7 +82,7 @@ public class CountRandom {
     /**
      * Creates a string displaying the number of hits each number got.
      * 
-     * If the optional parameter high is provided, also creates a
+     * If the optional parameter "high" is provided, also creates a
      * graphical representation.
      * 
      * @param int entry The number
@@ -99,11 +99,14 @@ public class CountRandom {
         String graph = "";
         
         int size = (int)((double)quantity / high * SCREEN_WIDTH);
-        for (int i = 0; i < size-1; i++) {
-            graph += "-";
+        
+        for (int i = 0; i < size-3; i++) {
+            graph += " ";
         }
         
+        if (size > 0) { graph += "--"; }
         graph += "+";
+        if (size < SCREEN_WIDTH) { graph += "--"; }
         
         String output = String.format("#%03d [%-68s] %-3d\n",
             entry, graph, quantity);
